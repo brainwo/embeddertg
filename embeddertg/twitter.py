@@ -7,7 +7,6 @@ from yt_dlp import YoutubeDL
 from embeddertg import YDL_OPTS
 
 
-# TODO: audio doesn't work somehow
 async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Twitter videos"""
     with YoutubeDL(YDL_OPTS) as ydl:
