@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "embeddertg"
+version = "0.1.0"
+description = ""
+authors = ["Brian Wo <45139213+brainwo@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-telegram-bot = {version = "^20.0a4", allow-prereleases = true}
+yt-dlp = "^2022.10.4"
+
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^1.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
