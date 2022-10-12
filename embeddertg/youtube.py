@@ -29,6 +29,9 @@ async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                         [[InlineKeyboardButton(text="YouTube Link", url=update.message.text)]])
                 )
                 await context.bot.delete_message(downloading.chat_id, downloading.message_id)
+            else:
+                await context.bot.delete_message(downloading.chat_id, downloading.message_id)
+                await context.bot.send_message(chat_id=update.message.chat_id, text="Unable to download video")
         except:
             await context.bot.delete_message(downloading.chat_id, downloading.message_id)
             await context.bot.send_message(chat_id=update.message.chat_id, text="Unable to download video")
