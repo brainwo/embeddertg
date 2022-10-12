@@ -15,7 +15,7 @@ async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             chat_id=update.message.chat_id,
             text="Downloading video...")
         try:
-            download_status = ydl.download(update.message.text)
+            download_status: int = ydl.download(update.message.text)
             if download_status == 0:
                 await downloading.edit_text('Sending video...')
                 output: BufferedReader = open('output.webm', 'rb')

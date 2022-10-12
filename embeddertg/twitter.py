@@ -15,7 +15,7 @@ async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             chat_id=update.message.chat_id,
             text="Downloading video...")
         try:
-            download_status = ydl.download(update.message.text)
+            download_status: int = ydl.download(update.message.text)
             if download_status == 0:
                 await downloading.edit_text('Sending video...')
                 output: BufferedReader = open('output', 'rb')
@@ -29,6 +29,9 @@ async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                         [[InlineKeyboardButton(text="Twitter Link", url=update.message.text)]])
                 )
                 await context.bot.delete_message(downloading.chat_id, downloading.message_id)
+            else:
+                await context.bot.delete_message(downloading.chat_id, downloading.message_id)
+                await context.bot.send_message(chat_id=update.message.chat_id, text="Unable to download video")
         except:
             await context.bot.delete_message(downloading.chat_id, downloading.message_id)
             await context.bot.send_message(chat_id=update.message.chat_id, text="Unable to download video")
