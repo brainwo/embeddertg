@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
 import os
+
 from telegram.ext import Application, ApplicationBuilder, MessageHandler, filters
 
-from embeddertg import youtube, twitter, discord
+from embeddertg import discord, twitter, youtube
 
 
 def main() -> None:
