@@ -18,7 +18,8 @@ def main() -> None:
         filters.Regex('twitter.com'), twitter.handler))
     # TODO: need some testing on url regex, preventing reading non-video url
     app.add_handler(MessageHandler(
-        filters.Regex('youtube.com') &
+        filters.Regex('youtube.com/watch?') &
+        filters.Regex('youtu.be') &
         ~filters.Regex('list'), youtube.handler))
 
     app.run_polling()
