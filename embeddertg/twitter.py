@@ -5,14 +5,19 @@ from telegram._inline.inlinekeyboardbutton import InlineKeyboardButton
 from telegram.ext import ContextTypes
 from yt_dlp import YoutubeDL
 
-from embeddertg import YDL_OPTS
+from __init__ import YDL_OPTS
 
 
 async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Twitter videos"""
     with YoutubeDL(YDL_OPTS) as ydl:
+        if update.message is None:
+            return
+        chat_id = update.message.chat_id
+        text = update.message.text
+        user = update.message.from_user.full_name if update.message.from_user else "No name"
         downloading: Message = await context.bot.send_message(
-            chat_id=update.message.chat_id,
+            chat_id=chat_id,
             text="Downloading video...")
         try:
             download_status: int = ydl.download(update.message.text)
@@ -24,9 +29,9 @@ async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                     chat_id=update.message.chat_id,
                     video=output,
                     write_timeout=None,
-                    caption=f"Video requested by: {update.message.from_user.full_name}",
-                    reply_markup=InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="Twitter Link", url=update.message.text)]])
+                    caption=f"Video requested by: {user}",
+                    reply_markup= InlineKeyboardMarkup(
+                        [[InlineKeyboardButton(text="Twitter Link", url=text)]]) if text is not None else InlineKeyboardMarkup([])
                 )
                 await context.bot.delete_message(downloading.chat_id, downloading.message_id)
             else:
