@@ -8,7 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 python-telegram-bot = {version = "^20.0a4", allow-prereleases = true}
-yt-dlp = "^2023.7.6"
+yt-dlp = "^2024.4.9"
 
 
 [tool.poetry.group.dev.dependencies]
