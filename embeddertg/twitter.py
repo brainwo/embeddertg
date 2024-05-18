@@ -30,7 +30,7 @@ async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                     video=output,
                     write_timeout=None,
                     caption=f"Video requested by: {user}",
-                    reply_markup= InlineKeyboardMarkup(
+                    reply_markup=InlineKeyboardMarkup(
                         [[InlineKeyboardButton(text="Twitter Link", url=text)]]) if text is not None else InlineKeyboardMarkup([])
                 )
                 await context.bot.delete_message(downloading.chat_id, downloading.message_id)

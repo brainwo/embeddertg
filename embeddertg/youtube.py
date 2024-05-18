@@ -30,7 +30,8 @@ async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                     chat_id=update.message.chat_id,
                     video=output,
                     write_timeout=None,
-                    caption=f"Video requested by: {update.message.from_user.full_name if update.message.from_user else 'No name'}",
+                    caption=f"Video requested by: {
+                        update.message.from_user.full_name if update.message.from_user else 'No name'}",
                     reply_markup=InlineKeyboardMarkup(
                         [[InlineKeyboardButton(text="YouTube Link", url=f"{update.message.text}")]])
                 )

@@ -1,0 +1,12 @@
+[Unit]
+Description=Telegram Media Embedder Bot
+After=multi-user.target
+
+[Service]
+ExecStart=just --justfile /home/brian/git/embeddertg/justfile
+Restart=always
+User=brian
+Type=idle
+
+[Install]
+WantedBy=multi-user.target

@@ -4,10 +4,10 @@ import os
 
 from telegram.ext import Application, ApplicationBuilder, MessageHandler, filters
 
-#  from embeddertg import discord, twitter, youtube
 from discord import handler as discordhandler
 from twitter import handler as twitterhandler
 from youtube import handler as youtubehandler
+
 
 def main() -> None:
     token: str = os.environ['BOT_TOKEN']
