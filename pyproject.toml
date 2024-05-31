@@ -7,14 +7,14 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-python-telegram-bot = {version = "^20.0a4", allow-prereleases = true}
+python-telegram-bot = "^21.0"
 yt-dlp = "^2024.4.9"
 
 
 [tool.poetry.group.dev.dependencies]
-autopep8 = "^1.7.0"
-flake8 = "^5.0.4"
-ruff = "^0.0.81"
+autopep8 = "^2.2.0"
+flake8 = "^7.0.0"
+ruff = "^0.4.6"
 
 [build-system]
 requires = ["poetry-core"]
