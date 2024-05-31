@@ -19,3 +19,7 @@ ruff = "^0.0.81"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins.dotenv]
+ignore = "false"
+location = ".env"

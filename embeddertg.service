@@ -3,10 +3,11 @@ Description=Telegram Media Embedder Bot
 After=multi-user.target
 
 [Service]
-ExecStart=just --justfile /home/brian/git/embeddertg/justfile
+ExecStart=poetry run python3 embeddertg
 Restart=always
 User=brian
 Type=idle
+WorkingDirectory=/home/brian/git/embeddertg/
 
 [Install]
 WantedBy=multi-user.target
