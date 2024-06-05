@@ -4,7 +4,8 @@ After=multi-user.target
 
 [Service]
 ExecStart=poetry run python3 embeddertg
-Restart=always
+Restart=on-failure
+RestartSec=1m
 User=brian
 Type=idle
 WorkingDirectory=/home/brian/git/embeddertg/

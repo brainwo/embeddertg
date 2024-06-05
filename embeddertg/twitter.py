@@ -37,6 +37,7 @@ async def handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             else:
                 await context.bot.delete_message(downloading.chat_id, downloading.message_id)
                 await context.bot.send_message(chat_id=update.message.chat_id, text="Unable to download video")
-        except:
+        except Exception as e:
+            print(f"[error] {e}")
             await context.bot.delete_message(downloading.chat_id, downloading.message_id)
             await context.bot.send_message(chat_id=update.message.chat_id, text="Unable to download video")
