@@ -1,14 +1,12 @@
 [Unit]
 Description=Telegram Media Embedder Bot
-After=multi-user.target
 
 [Service]
 ExecStart=poetry run python3 embeddertg
 Restart=on-failure
 RestartSec=1m
-User=brian
 Type=idle
-WorkingDirectory=/home/brian/git/embeddertg/
+WorkingDirectory={{WORKING_DIRECTORY}}
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
