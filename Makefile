@@ -7,7 +7,7 @@ ifneq ("$(wildcard $(INSTALL_PATH))", "")
 	@echo "To uninstall: make uninstall"
 else
 	./scripts/mo embeddertg.service.mo > $(INSTALL_PATH)
-	systemctl --user enable embeddertg
+	systemctl --user enable --now embeddertg
 endif
 
 uninstall:
@@ -18,4 +18,5 @@ else
 	@echo "Nothing to remove"
 endif
 
-
+restart-server:
+	systemctl --user restart embeddertg
