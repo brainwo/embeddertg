@@ -1,1 +1,1 @@
-scripts export-ignore
+scripts/* linguist-vendored=false
