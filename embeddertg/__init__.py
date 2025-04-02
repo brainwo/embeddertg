@@ -12,5 +12,5 @@ YDL_OPTS = {
     'match_filter': no_long_video,
 }
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __license__ = "MIT"
